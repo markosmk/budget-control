@@ -3,7 +3,7 @@ export const ModalContent = ({ open, setOpen, title, content }) => {
     <div
       tabIndex="-1"
       aria-hidden="true"
-      className={`overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0  justify-center items-center w-full md:inset-0 h-modal md:h-full bg-cool-900 bg-opacity-70 backdrop-blur-sm ${
+      className={`overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 justify-center items-center w-full md:inset-0 h-screen md:h-full bg-cool-900 bg-opacity-70 backdrop-blur-sm ${
         open ? 'flex' : 'hidden'
       }`}
     >
@@ -17,7 +17,6 @@ export const ModalContent = ({ open, setOpen, title, content }) => {
             <button
               type="button"
               className="text-cool-600 dark:text-white bg-transparent hover:bg-slate-100 hover:text-cool-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-cool-600 dark:hover:text-white"
-              data-modal-toggle="defaultModal"
               onClick={() => setOpen(false)}
             >
               <svg
