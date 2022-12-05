@@ -22,8 +22,11 @@ export const Account = () => {
 
   const handleEdit = (id) => {
     const response = api.get(id);
-    setOpen(true);
-    setEditData(response.id);
+    if (response) {
+      console.log(response);
+      setOpen(true);
+      setEditData(response.id);
+    }
   };
 
   return (

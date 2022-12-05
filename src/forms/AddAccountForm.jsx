@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { v4 as uuidv4 } from 'uuid';
 import api from '../services/RestApiLocalStorage';
 
 const initValue = {
@@ -13,7 +12,6 @@ const initValue = {
 };
 
 export const AddAccountForm = ({ setOpen, identify }) => {
-  const [account, setAccount] = useState({});
   const { register, watch, reset, setValue, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -22,7 +20,6 @@ export const AddAccountForm = ({ setOpen, identify }) => {
       if (account) {
         const fields = ['name', 'quantity', 'currency', 'saving', 'tax', 'type'];
         fields.forEach((field) => setValue(field, account[field]));
-        setAccount(account);
       }
     } else {
       reset(initValue);
@@ -33,7 +30,7 @@ export const AddAccountForm = ({ setOpen, identify }) => {
   const typeAccount = watch('type');
 
   const onSubmit = (data) => {
-    const response = api.post({ id: uuidv4(), ...data });
+    identify ? api.put(identify, data) : api.post(data);
     setOpen(false);
   };
 
