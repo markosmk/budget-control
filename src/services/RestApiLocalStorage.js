@@ -21,6 +21,9 @@ export class RestApiLocalStorage {
   }
 
   saveData(data) {
+    if (!this.currentItems) {
+      this.currentItems = [];
+    }
     const newData = data ? [...this.currentItems, data] : this.currentItems;
     window.localStorage.setItem(NAME_DB, JSON.stringify(newData));
     this.getData();
