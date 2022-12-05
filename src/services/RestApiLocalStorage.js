@@ -10,18 +10,18 @@ export class RestApiLocalStorage {
   }
 
   getData() {
-    const DB = localStorage.getItem(NAME_DB);
+    const DB = window.localStorage.getItem(NAME_DB);
     if (!DB || DB !== 'undefined') {
       this.currentItems = JSON.parse(DB);
     } else {
       this.currentItems = [];
-      localStorage.setItem(NAME_DB, JSON.stringify(this.currentItems));
+      window.localStorage.setItem(NAME_DB, JSON.stringify(this.currentItems));
     }
   }
 
   saveData(data) {
     const newData = data ? [...this.currentItems, data] : this.currentItems;
-    localStorage.setItem(NAME_DB, JSON.stringify(newData));
+    window.localStorage.setItem(NAME_DB, JSON.stringify(newData));
     this.getData();
   }
 
