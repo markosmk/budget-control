@@ -1,7 +1,9 @@
+import { HeaderPage } from '../components/HeaderPage';
+
 export const History = () => {
   return (
-    <div>
-      <p>History</p>
-    </div>
+    <>
+      <HeaderPage name="Historial" />
+    </>
   );
 };

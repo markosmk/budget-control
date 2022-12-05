@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { HeaderPage } from '../components/HeaderPage';
 
 import { ModalContent } from '../components/ModalContent';
 import { AddAccountForm } from '../forms/AddAccountForm';
@@ -30,21 +31,16 @@ export const Account = () => {
   };
 
   return (
-    <div>
-      <div className="flex justify-between items-center border-b pb-2 dark:border-slate-700">
-        <h1 className="font-bold text-lg dark:text-white">Cuentas</h1>
-        <div className="flex justify-end">
-          <button
-            className="bg-cool-600 text-white text-xs py-2 px-4 rounded-lg hover:bg-cool-700"
-            onClick={() => {
-              setOpen(!open);
-              setEditData(false);
-            }}
-          >
-            Agregar
-          </button>
-        </div>
-      </div>
+    <>
+      <HeaderPage
+        name="Cuentas"
+        button={{
+          action: () => {
+            setOpen(!open);
+            setEditData(false);
+          },
+        }}
+      />
 
       <div className="grid my-8 gap-2 md:mb-12 md:grid-cols-2">
         {accounts?.map((item) => (
@@ -87,6 +83,6 @@ export const Account = () => {
         title={editData ? 'Editar Cuenta' : 'Agregar Cuenta'}
         content={<AddAccountForm setOpen={setOpen} identify={editData} />}
       />
-    </div>
+    </>
   );
 };

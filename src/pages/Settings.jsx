@@ -1,7 +1,9 @@
+import { HeaderPage } from '../components/HeaderPage';
+
 export const Settings = () => {
   return (
-    <div>
-      <p>Settings</p>
-    </div>
+    <>
+      <HeaderPage name="Opciones" />
+    </>
   );
 };
