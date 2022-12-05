@@ -1,4 +1,5 @@
 'use strict';
+import { v4 as uuidv4 } from 'uuid';
 
 const NAME_DB = 'accounts';
 
@@ -34,14 +35,14 @@ export class RestApiLocalStorage {
   }
 
   post(data) {
-    this.saveData(data);
+    this.saveData({ id: uuidv4(), ...data });
     return this.currentItems;
   }
 
   put(id, data) {
     this.currentItems = this.currentItems.map((item) => {
       if (item.id === id) {
-        item = data;
+        item = { ...item, ...data };
       }
       return item;
     });
