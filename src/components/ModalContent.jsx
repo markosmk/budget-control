@@ -3,20 +3,20 @@ export const ModalContent = ({ open, setOpen, title, content }) => {
     <div
       tabIndex="-1"
       aria-hidden="true"
-      className={`overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0  justify-center items-center w-full md:inset-0 h-modal md:h-full bg-slate-100 bg-opacity-70 backdrop-blur-sm ${
+      className={`overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0  justify-center items-center w-full md:inset-0 h-modal md:h-full bg-cool-900 bg-opacity-70 backdrop-blur-sm ${
         open ? 'flex' : 'hidden'
       }`}
     >
       <div className="absolute inset-0 z-10" onClick={() => setOpen(false)}></div>
       <div className="relative p-4 w-full max-w-2xl h-full md:h-auto z-50">
-        <div className="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+        <div className="relative p-4 bg-white rounded-lg shadow dark:bg-slate-800 sm:p-5">
           {/* Modal header */}
-          <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{title}</h3>
+          <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-slate-600">
+            <h3 className="text-lg font-semibold text-cool-900 dark:text-white">{title}</h3>
             {/* Close modal */}
             <button
               type="button"
-              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              className="text-cool-600 dark:text-white bg-transparent hover:bg-slate-100 hover:text-cool-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-cool-600 dark:hover:text-white"
               data-modal-toggle="defaultModal"
               onClick={() => setOpen(false)}
             >

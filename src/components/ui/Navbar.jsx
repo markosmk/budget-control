@@ -1,10 +1,10 @@
 import { LinkNavbar } from './LinkNavbar';
 
 const routesInSidebar = [
-  { to: '/', name: 'Home' },
-  { to: 'account', name: 'Account' },
-  { to: 'history', name: 'History' },
-  { to: 'settings', name: 'Settings' },
+  { to: '/', name: 'Inicio' },
+  { to: 'account', name: 'Cuentas' },
+  { to: 'history', name: 'Informes' },
+  { to: 'settings', name: 'Opciones' },
 ];
 
 export const Navbar = () => {
