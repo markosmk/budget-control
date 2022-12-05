@@ -35,7 +35,7 @@ export const ModalContent = ({ open, setOpen, title, content }) => {
               </svg>
             </button>
           </div>
-          {content}
+          {open && content}
         </div>
       </div>
     </div>
