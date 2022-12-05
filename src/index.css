@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 .active {
-  @apply bg-slate-50;
+  @apply bg-slate-50 scale-95 dark:bg-cool-600 dark:text-white dark:hover:bg-cool-600;
 }
 .btn {
-  @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+  @apply text-white bg-cool-600 hover:bg-cool-700 focus:ring-4 focus:outline-none focus:ring-cool-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cool-600 dark:hover:bg-cool-700 dark:focus:ring-cool-800;
 }
 
 .control {
-  @apply bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-cyan-500 dark:focus:border-cyan-500;
+  @apply bg-slate-50 border-2 border-slate-300 text-slate-900 text-sm rounded-lg focus:outline-none focus:ring-cool-500 focus:border-cool-500 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-cool-500 dark:focus:border-cool-500;
 }
 .title-label {
-  @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+  @apply block mb-2 text-sm font-medium text-slate-900 dark:text-white;
 }
