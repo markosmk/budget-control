@@ -1,21 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { v4 as uuidv4 } from 'uuid';
+import api from '../services/RestApiLocalStorage';
 
-export const AddAccountForm = () => {
-  const [form, setForm] = useState({});
-  const { register, watch, handleSubmit } = useForm({
-    defaultValues: {
-      tax: 19,
-      type: 'normal',
-    },
-  });
+const initValue = {
+  tax: 19,
+  quantity: '',
+  type: 'normal',
+  name: '',
+  currency: '',
+  saving: false,
+};
+
+export const AddAccountForm = ({ setOpen, identify }) => {
+  const [account, setAccount] = useState({});
+  const { register, watch, reset, setValue, handleSubmit } = useForm();
+
+  useEffect(() => {
+    if (identify) {
+      const account = api.get(identify);
+      if (account) {
+        const fields = ['name', 'quantity', 'currency', 'saving', 'tax', 'type'];
+        fields.forEach((field) => setValue(field, account[field]));
+        setAccount(account);
+      }
+    } else {
+      reset(initValue);
+    }
+  }, [identify]);
 
   const tax = watch('tax');
   const typeAccount = watch('type');
 
   const onSubmit = (data) => {
-    setForm(data);
-    console.log(data);
+    const response = api.post({ id: uuidv4(), ...data });
+    setOpen(false);
   };
 
   return (
@@ -133,14 +152,9 @@ export const AddAccountForm = () => {
         )}
       </fieldset>
 
-      <button
-        type="submit"
-        className="w-full text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-      >
-        Agregar nueva cuenta
+      <button type="submit" className="btn">
+        {identify ? 'Actualizar cuenta' : 'Agregar nueva cuenta'}
       </button>
-
-      <pre>{JSON.stringify(form, null, 2)}</pre>
     </form>
   );
 };
